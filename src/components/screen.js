@@ -1,10 +1,10 @@
-import React from 'react';
-import Header from './header';
-import { withAuth } from '@okta/okta-react';
-import { useAuth } from './auth';
+import React from 'react'
+import Header from './header'
+import { withAuth } from '@okta/okta-react'
+import { useAuth } from './auth'
 
 const Screen = withAuth(({ auth }) => {
-  const authenticated = useAuth(auth)
+  const [authenticated, accessToken] = useAuth(auth)
   return (
     <div>
       <header>
@@ -12,20 +12,22 @@ const Screen = withAuth(({ auth }) => {
           <div>
             <button
               onClick={() => authenticated ? auth.logout() : auth.login()}
-              className="App-link"
             >
               Log {authenticated ? 'out' : 'in'}
             </button>
-            <div className='container'>
+            <div>
               <Header />
-              <canvas id='canvas' width='240' height='240' />
-              <img id='squares' hidden={true} src='img/squares.png' alt=''/>
             </div>
+          </div>
+        )}
+        {accessToken !== null && (
+          <div>
+            <p>{accessToken}</p>
           </div>
         )}
       </header>
     </div>
-  );
-});
+  )
+})
 
-export default Screen;
+export default Screen

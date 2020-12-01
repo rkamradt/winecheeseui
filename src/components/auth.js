@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 export const useAuth = (auth) => {
   const [authenticated, setAuthenticated] = useState(null)
@@ -30,5 +30,5 @@ export const useAuth = (auth) => {
     }
   }, [authenticated, auth])
 
-  return authenticated
-};
+  return [authenticated, accessToken]
+}

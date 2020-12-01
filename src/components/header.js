@@ -1,12 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 class Header extends React.Component {
   render() {
     return (
-      <div className='header clearfix'>
-        <h3 className='text-muted'>Wine and Cheese Pairings</h3>
-      </div>
-    );
+      <h3>Wine and Cheese Pairings</h3>
+    )
   }
 }
 

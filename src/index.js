@@ -1,9 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Screen from './components/screen';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Security, ImplicitCallback } from '@okta/okta-react';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Screen from './components/screen'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Security, ImplicitCallback } from '@okta/okta-react'
 
 ReactDOM.render(
   <Router>
