@@ -37,9 +37,7 @@ const Home = () => {
         && (
         <div>
           <p>
-            Welcome back,
-            {userInfo.name}
-            !
+            Welcome back, {userInfo.name}!
           </p>
         </div>
         )}
