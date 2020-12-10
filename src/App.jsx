@@ -1,13 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { OktaAuth } from '@okta/okta-auth-js';
-import { Security, LoginCallback } from '@okta/okta-react';
-import Home from './Home';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { OktaAuth } from '@okta/okta-auth-js'
+import { Security, LoginCallback } from '@okta/okta-react'
+import Home from './Home'
 
-const CLIENT_ID = '0oag1oxllhj9N2SPV4x6';
-const ISSUER = 'https://dev-804011.okta.com/oauth2/default';
-const OKTA_TESTING_DISABLEHTTPSCHECK = true;
-const REDIRECT_URI = `${window.location.origin}/implicit/callback`;
+const CLIENT_ID = '0oag1oxllhj9N2SPV4x6'
+const ISSUER = 'https://dev-804011.okta.com/oauth2/default'
+const OKTA_TESTING_DISABLEHTTPSCHECK = true
+const REDIRECT_URI = `${window.location.origin}/implicit/callback`
 
 const config = {
   oidc: {
@@ -20,7 +20,7 @@ const config = {
   }
 }
 
-const oktaAuth = new OktaAuth(config.oidc);
+const oktaAuth = new OktaAuth(config.oidc)
 
 const App = () => (
   <Router>
@@ -31,5 +31,5 @@ const App = () => (
       </Switch>
     </Security>
   </Router>
-);
-export default App;
+)
+export default App

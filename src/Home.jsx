@@ -1,56 +1,35 @@
-import { useOktaAuth } from '@okta/okta-react';
-import React, { useState, useEffect } from 'react';
+import WineList from './WineList'
+import EditButtons from './EditButtons'
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Randal Kamradt
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const Home = () => {
-  const { authState, oktaAuth } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
-
-  useEffect(() => {
-    if (!authState.isAuthenticated) {
-      setUserInfo(null);
-    } else {
-      oktaAuth.getUser().then((info) => {
-        setUserInfo(info);
-      });
-    }
-  }, [authState, oktaAuth]); // Update if authState changes
-
-  const login = async () => {
-    oktaAuth.signInWithRedirect();
-  };
-
-  if (authState.isPending) {
-    return (
-      <div>Loading...</div>
-    );
-  }
-
   return (
-    <div>
-      <div>
-        <h1 as="h1">Wine & Cheese Pairing App</h1>
-
-        { authState.isAuthenticated && !userInfo
-        && <div>Loading user information...</div>}
-
-        {authState.isAuthenticated && userInfo
-        && (
-        <div>
-          <p>
-            Welcome back, {userInfo.name}!
-          </p>
-        </div>
-        )}
-
-        {!authState.isAuthenticated
-        && (
-        <div>
-          <button id="login-button" primary onClick={login}>Login</button>
-        </div>
-        )}
-
-      </div>
-    </div>
-  );
-};
-export default Home;
+    <Container maxWidth="sm">
+      <Box my={4}>
+        <EditButtons />
+        <Typography variant="h4" component="h1" gutterBottom>
+          Wine & Cheese Pairing App
+        </Typography>
+        <WineList />
+        <Copyright />
+      </Box>
+    </Container>
+  )
+}
+export default Home
