@@ -40,7 +40,7 @@ const WineList = () => {
 
   // fetch messages
   useEffect(() => {
-      fetch('https://phprest.kamradtfamily.net/api/pairing')
+      fetch('https://pyrest.kamradtfamily.net/api/pairing')
         .then((response) => {
           if (!response.ok) {
             return Promise.reject()
@@ -62,7 +62,7 @@ const WineList = () => {
           setWineListError(true)
           console.error(err)
         })
-  }, [wineList, wineListError])
+  },[])
 
   return (
     <Box>
